@@ -1,4 +1,3 @@
-
 //Реализовать волновой алгоритм
 import java.util.*;
 import java.io.BufferedReader;
@@ -14,9 +13,7 @@ public class waveAlgoritm {
         }
         int matrixWidth = lines.get(0).split(" ").length;
         int matrixHeight = lines.size();
-
         int[][] matrix = new int[matrixHeight][matrixWidth];
-
         for (int i = 0; i < matrixHeight; i++) {
             String[] line = lines.get(i).split(" ");
             for (int j = 0; j < matrixWidth; j++) {
@@ -62,7 +59,6 @@ public class waveAlgoritm {
             }
             System.out.println();
         }
-
     }
 
     public static boolean findPoint(int[][] matrix, int x, int y, int x1, int y1) { // Нахождение искомой точки
@@ -87,13 +83,11 @@ public class waveAlgoritm {
                 matrix[x2][y0] = value;
                 deque.addLast(new int[] { x2, y0, value });
             }
-
             if (matrix[x0][y0 - 1] == 0 && ((y0 - 1) >= 0)) {
                 value = element[2] + 1;
                 y2 = element[1] - 1;
                 matrix[x0][y2] = value;
                 deque.addLast(new int[] { x0, y2, value });
-
             }
             if (((x0 - 1) >= 0) && matrix[x0 - 1][y0] == 0) {
                 value = element[2] + 1;
@@ -106,7 +100,6 @@ public class waveAlgoritm {
                 y2 = element[1] + 1;
                 matrix[x0][y2] = value;
                 deque.addLast(new int[] { x0, y2, value });
-
             }
         }
         if (deque.isEmpty())
@@ -121,7 +114,6 @@ public class waveAlgoritm {
 
         path.add(new int[] { x, y });
         if (matrix[x][y] == 1) {
-
             return;
         } else {
             for (int i = -1; i <= 1; i++) {
@@ -136,7 +128,6 @@ public class waveAlgoritm {
                 }
             }
         }
-
     }
 
     static void printPath(ArrayList<int[]> arList, int x, int y) { // печать пути
@@ -149,7 +140,6 @@ public class waveAlgoritm {
                 System.out.printf("( %d, %d ) ->", array[0], array[1]);
             }
         }
-
     }
 
     public static void main(String[] args) throws Exception {
